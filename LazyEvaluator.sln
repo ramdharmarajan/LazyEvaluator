@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyEvaluator.Tests", "LazyEvaluator.Tests\LazyEvaluator.Tests.csproj", "{66252E7D-AABA-4337-B185-161002972840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyEvaluator.Core", "LazyEvaluator.Core\LazyEvaluator.Core.csproj", "{E273DD38-BD59-4F47-9E15-219EB70DDABF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66252E7D-AABA-4337-B185-161002972840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66252E7D-AABA-4337-B185-161002972840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66252E7D-AABA-4337-B185-161002972840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66252E7D-AABA-4337-B185-161002972840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E273DD38-BD59-4F47-9E15-219EB70DDABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E273DD38-BD59-4F47-9E15-219EB70DDABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E273DD38-BD59-4F47-9E15-219EB70DDABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E273DD38-BD59-4F47-9E15-219EB70DDABF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
