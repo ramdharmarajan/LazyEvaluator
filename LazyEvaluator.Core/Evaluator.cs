@@ -5,20 +5,20 @@ namespace LazyEvaluator.Core
 {
     public class Evaluator<T> where T : struct
     {
-        private readonly List<(Func<T, T[], T>, T[])> _expressions = new();
+        private readonly List<ExpressionArgsMapper<T>> _expressions = new();
         
         public void Add(Func<T, T[], T> func, params T[] additionalArgs)
         {
-            _expressions.Add((func, additionalArgs));
+            _expressions.Add(new ExpressionArgsMapper<T>(func, additionalArgs));
         }
 
         public T Evaluate(T seed)
         {
             _expressions.ForEach(expression =>
             {
-                var args = expression.Item2;
+                var args = expression.Args;
 
-                seed = expression.Item1.Invoke(seed, args);
+                seed = expression.Func.Invoke(seed, args);
             });
 
             return seed;
