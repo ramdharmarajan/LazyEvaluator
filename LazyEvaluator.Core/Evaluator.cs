@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace LazyEvaluator.Core
 {
@@ -23,7 +24,20 @@ namespace LazyEvaluator.Core
             {
                 var args = expression.Args;
 
-                seed = expression.Func.Invoke(seed, args);
+                try
+                {
+                    seed = expression.Func.Invoke(seed, args);
+                }
+                catch (DivideByZeroException divideByZeroException)
+                {
+                    Trace.WriteLine($"Divide by Zero Exception occured during evaluation: {divideByZeroException.Message}");
+                    throw;
+                }
+                catch (Exception e)
+                {
+                    Trace.WriteLine(e.Message);
+                    throw;
+                }
             });
 
             return seed;

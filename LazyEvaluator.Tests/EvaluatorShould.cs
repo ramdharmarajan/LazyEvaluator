@@ -16,6 +16,16 @@ namespace LazyEvaluator
         }
         
         [Test]
+        public void ThrowDivideByZeroException_WhenDivideByZeroOperationIsAttempted()
+        {
+            var evaluator = new Evaluator<int>();
+
+            evaluator.Add((val, _) => val / 0);
+
+            Assert.Throws<DivideByZeroException>(() => evaluator.Evaluate(8));
+        }
+        
+        [Test]
         public void DoesNotThrowArgumentNullException_WhenNullArgsIsPassed()
         {
             var evaluator = new Evaluator<int>();
@@ -42,7 +52,6 @@ namespace LazyEvaluator
         
         [TestCase(8.545, 22.2725)]
         [TestCase(10.123, 23.0615)]
-        [TestCase(-11.456, 12.271999999999998)]
         [TestCase(0.0, 18)]
         [TestCase(100.987, 68.4935)]
         public void CalculateTheCorrectOutput_WhenValidDoubleArgumentsArePassed(double seed, double output)
