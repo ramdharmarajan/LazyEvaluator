@@ -28,9 +28,26 @@ namespace LazyEvaluator
         [TestCase(-11, 13)]
         [TestCase(0, 18)]
         [TestCase(100, 68)]
-        public void CalculateTheCorrectOutput_WhenValidArgumentsArePassed(int seed, int output)
+        public void CalculateTheCorrectOutput_WhenValidIntegerArgumentsArePassed(int seed, int output)
         {
             var evaluator = new Evaluator<int>();
+            
+            evaluator.Add((val, _) => val / 2);
+            evaluator.Add((val, additionalVals) => val + additionalVals[0], 5);
+            evaluator.Add((val, additionalVals) => val + 1 + additionalVals[0], 20);
+            evaluator.Add((val, additionalVals) => val - additionalVals[0] - additionalVals[1], 5, 3);
+
+            evaluator.Evaluate(seed).Should().Be(output);
+        }
+        
+        [TestCase(8.545, 22.2725)]
+        [TestCase(10.123, 23.0615)]
+        [TestCase(-11.456, 12.271999999999998)]
+        [TestCase(0.0, 18)]
+        [TestCase(100.987, 68.4935)]
+        public void CalculateTheCorrectOutput_WhenValidDoubleArgumentsArePassed(double seed, double output)
+        {
+            var evaluator = new Evaluator<double>();
             
             evaluator.Add((val, _) => val / 2);
             evaluator.Add((val, additionalVals) => val + additionalVals[0], 5);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LazyEvaluator.Core
 {
-    public class Evaluator<T> where T : struct
+    public class Evaluator<T> where T : struct, IComparable, IComparable<T>, IConvertible, IEquatable<T>, IFormattable
     {
         private readonly List<ExpressionArgsMapper<T>> _expressions = new();
         
