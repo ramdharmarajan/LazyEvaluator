@@ -9,6 +9,11 @@ namespace LazyEvaluator.Core
         
         public void Add(Func<T, T[], T> func, params T[] additionalArgs)
         {
+            if (func == null)
+            {
+                throw new ArgumentNullException($"argument {nameof(func)} is null");
+            }
+            
             _expressions.Add(new ExpressionArgsMapper<T>(func, additionalArgs));
         }
 
