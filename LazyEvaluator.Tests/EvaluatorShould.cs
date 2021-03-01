@@ -28,7 +28,7 @@ namespace LazyEvaluator
         [TestCase(-11, 13)]
         [TestCase(0, 18)]
         [TestCase(100, 68)]
-        public void CalculateTheCorrectOutput_WhenValidArgumentsArePassed(int seed, int Output)
+        public void CalculateTheCorrectOutput_WhenValidArgumentsArePassed(int seed, int output)
         {
             var evaluator = new Evaluator<int>();
             
@@ -37,7 +37,7 @@ namespace LazyEvaluator
             evaluator.Add((val, additionalVals) => val + 1 + additionalVals[0], 20);
             evaluator.Add((val, additionalVals) => val - additionalVals[0] - additionalVals[1], 5, 3);
 
-            evaluator.Evaluate(seed).Should().Be(Output);
+            evaluator.Evaluate(seed).Should().Be(output);
         }
     }
 }
